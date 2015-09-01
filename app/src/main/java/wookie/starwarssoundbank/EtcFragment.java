@@ -21,9 +21,9 @@ import info.hoang8f.widget.FButton;
 
 
 /**
- * A Chewie sounds fragment!
+ * Other sounds
  */
-public class ChewieFragment extends Fragment {
+public class EtcFragment extends Fragment {
 
     /* Properties */
     private Map<String, Integer> sounds = new HashMap<>();
@@ -34,52 +34,42 @@ public class ChewieFragment extends Fragment {
 
     /* Audio resources */
     private final String[] labels = new String[] {
-        "Wah! snort",
-        "Rhawk-Arghh!",
-        "Ahhowwwahow",
-        "Woh Arg-oh-oh",
-        "Ahhhgh!",
-        "Rrrrooaarrgghh!",
-        "Wha!",
-        "Whoa!",
-        "Arrrrghh!",
-        "Rwahh-oh-oh",
-        "Rgrah rha",
-        "Ahhhh! Argh",
-        "Arhhhh-rh",
-        "Wooouah!",
-        "Rrrrugh!",
+        "AT-ST",
+        "Happy confirmation",
+        "Happy Three-Chirp",
+        "Imperial Probe droid",
+        "It's them! Blast them!",
+        "Look, there!",
+        "Power Up 1",
+        "Power Up 2",
+        "Testy Blowup",
+        "There's no one here",
     };
     private final Integer[] resources = new Integer[] {
-        R.raw.chwbc_01,
-        R.raw.chwbc_02,
-        R.raw.chwbc_03,
-        R.raw.chwbc_04,
-        R.raw.chwbc_05,
-        R.raw.chwbc_06,
-        R.raw.chwbc_07,
-        R.raw.chwbc_08,
-        R.raw.chwbc_09,
-        R.raw.chwbc_10,
-        R.raw.chwbc_11,
-        R.raw.chwbc_12,
-        R.raw.chwbc_13,
-        R.raw.chwbc_14,
-        R.raw.chwbc_15,
+        R.raw.misc_01,
+        R.raw.misc_02,
+        R.raw.misc_03,
+        R.raw.misc_04,
+        R.raw.misc_05,
+        R.raw.misc_06,
+        R.raw.misc_07,
+        R.raw.misc_08,
+        R.raw.misc_09,
+        R.raw.misc_10,
     };
 
     /**
      * Inject all the buttons!
      */
-    public static ChewieFragment newInstance() {
-        ChewieFragment fragment = new ChewieFragment();
+    public static EtcFragment newInstance() {
+        EtcFragment fragment = new EtcFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
 
         return fragment;
     }
 
-    public ChewieFragment() {
+    public EtcFragment() {
         // Required empty public constructor
     }
 

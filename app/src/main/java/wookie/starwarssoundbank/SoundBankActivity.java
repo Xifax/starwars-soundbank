@@ -97,6 +97,8 @@ public class SoundBankActivity extends ActionBarActivity {
                     return ChewieFragment.newInstance();
                 case 1:
                     return BlasterFragment.newInstance();
+                case 2:
+                    return EtcFragment.newInstance();
                 default:
                     return PlaceholderFragment.newInstance(position + 1);
             }
@@ -117,7 +119,7 @@ public class SoundBankActivity extends ActionBarActivity {
                 case 1:
                     return getString(R.string.blasters).toUpperCase(l);
                 case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
+                    return getString(R.string.etc).toUpperCase(l);
             }
             return null;
         }
