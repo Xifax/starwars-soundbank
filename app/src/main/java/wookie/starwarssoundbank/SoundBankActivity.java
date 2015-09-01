@@ -12,39 +12,72 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import it.neokree.materialtabs.MaterialTab;
+import it.neokree.materialtabs.MaterialTabHost;
+import it.neokree.materialtabs.MaterialTabListener;
+
 
 public class SoundBankActivity extends ActionBarActivity {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * Bla-blah, adapter that contains our fragments.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
+    @Bind(R.id.pager)
     ViewPager mViewPager;
+
+    /**
+     * Tab host for material tabs (above pager itself).
+     */
+    @Bind(R.id.materialTabHost)
+    MaterialTabHost tabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_bank);
-
+        ButterKnife.bind(this);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                tabHost.setSelectedNavigationItem(position);
+            }
+        });
+
+        // Initialize material tabs
+        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+            tabHost.addTab(
+                    tabHost.newTab().setTabListener(new MaterialTabListener() {
+                        @Override
+                        public void onTabSelected(MaterialTab materialTab) {
+                            mViewPager.setCurrentItem(materialTab.getPosition());
+                        }
+
+                        @Override
+                        public void onTabReselected(MaterialTab materialTab) {}
+
+                        @Override
+                        public void onTabUnselected(MaterialTab materialTab) {}
+
+                    }).setText(mSectionsPagerAdapter.getPageTitle(i))
+            );
+        }
 
     }
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -81,13 +114,16 @@ public class SoundBankActivity extends ActionBarActivity {
                 case 0:
                     return getString(R.string.chewie).toUpperCase(l);
                 case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
+                    return getString(R.string.blasters).toUpperCase(l);
                 case 2:
                     return getString(R.string.title_section3).toUpperCase(l);
             }
             return null;
         }
     }
+
+
+    /* WARNING: Stub stuff ahead! */
 
     /**
      * A placeholder fragment containing a simple view.
@@ -117,8 +153,7 @@ public class SoundBankActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_sound_bank, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_sound_bank, container, false);
         }
     }
 
