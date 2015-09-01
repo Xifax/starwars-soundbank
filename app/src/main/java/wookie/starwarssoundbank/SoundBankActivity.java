@@ -44,6 +44,10 @@ public class SoundBankActivity extends ActionBarActivity {
         setContentView(R.layout.activity_sound_bank);
         ButterKnife.bind(this);
 
+        // It's a trap!
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -100,7 +104,7 @@ public class SoundBankActivity extends ActionBarActivity {
                 case 2:
                     return EtcFragment.newInstance();
                 default:
-                    return PlaceholderFragment.newInstance(position + 1);
+                    return ChewieFragment.newInstance();
             }
         }
 
@@ -122,41 +126,6 @@ public class SoundBankActivity extends ActionBarActivity {
                     return getString(R.string.etc).toUpperCase(l);
             }
             return null;
-        }
-    }
-
-
-    /* WARNING: Stub stuff ahead! */
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_sound_bank, container, false);
         }
     }
 

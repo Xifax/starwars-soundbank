@@ -44,6 +44,8 @@ public class EtcFragment extends Fragment {
         "Power Up 2",
         "Testy Blowup",
         "There's no one here",
+        "Nexu",
+        "It's a trap!"
     };
     private final Integer[] resources = new Integer[] {
         R.raw.misc_01,
@@ -56,6 +58,8 @@ public class EtcFragment extends Fragment {
         R.raw.misc_08,
         R.raw.misc_09,
         R.raw.misc_10,
+        R.raw.misc_11,
+        R.raw.misc_12,
     };
 
     /**

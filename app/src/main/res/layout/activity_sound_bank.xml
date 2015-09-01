@@ -13,11 +13,10 @@
         app:primaryColor="@color/color_wet_asphalt"
         app:accentColor="@color/color_pumpkin" />
 
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_below="@+id/materialTabHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
 </RelativeLayout>

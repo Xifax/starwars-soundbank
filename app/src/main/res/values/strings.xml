@@ -4,9 +4,4 @@
     <string name="chewie">Chewie</string>
     <string name="blasters">Blasters</string>
     <string name="etc">Etc</string>
-
-    <string name="action_settings">Settings</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
